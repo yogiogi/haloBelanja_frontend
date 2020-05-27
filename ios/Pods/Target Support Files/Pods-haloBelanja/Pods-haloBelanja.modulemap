@@ -1,0 +1,6 @@
+module Pods_haloBelanja {
+  umbrella header "Pods-haloBelanja-umbrella.h"
+
+  export *
+  module * { export * }
+}
