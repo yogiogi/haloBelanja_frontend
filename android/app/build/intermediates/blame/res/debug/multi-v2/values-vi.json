@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yogiprasetyo/Documents/haloBelanja/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
+            "outputFile": "/Users/yogiprasetyo/Documents/GitHub/haloBelanja_frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml",
             "map": [
                 {
                     "source": "/Users/yogiprasetyo/.gradle/caches/transforms-2/files-2.1/e848a66a285bf47a0c25f2edbfc22941/jetified-play-services-basement-17.1.1/res/values-vi/values.xml",

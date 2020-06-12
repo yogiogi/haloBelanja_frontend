@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yogiprasetyo/Documents/haloBelanja/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml",
+            "outputFile": "/Users/yogiprasetyo/Documents/GitHub/haloBelanja_frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml",
             "map": [
                 {
                     "source": "/Users/yogiprasetyo/.gradle/caches/transforms-2/files-2.1/1b8b587c2fbf84efd1b33eccfde4033f/play-services-base-17.1.0/res/values-ar/values.xml",
