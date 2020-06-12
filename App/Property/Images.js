@@ -9,6 +9,7 @@ const images = {
     tokopedia: require('../Images/tokopedia.png'),
     shopee: require('../Images/shopee.png'),
   },
+  grade: require('../Images/star.png'),
   showPassword: require('../Images/eye_visible.png'),
   mailActivation: require('../Images/mail_activation.png'),
   verifiedMerchant: require('../Images/verified_merchant.png'),

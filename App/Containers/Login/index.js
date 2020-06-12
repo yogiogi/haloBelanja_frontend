@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import {Container, Footer, Button} from 'native-base';
 import {NavigationActions, StackActions} from 'react-navigation';
+
+import { LoginButton } from 'react-native-fbsdk';
 import InputPassword from '../../Components/FormComponent/InputPassword';
 import InputText from '../../Components/FormComponent/InputText';
 import {Images} from '../../Property';
@@ -115,29 +117,36 @@ export class LoginTeleponScreen extends Component<Props, State> {
         </View>
         <Text style={styles.informationWrapper}>{TITLES.Atau}</Text>
         <View style={styles.ButtonLoginHelp}>
-          <TouchableOpacity
+          <View>
+            <TouchableOpacity
+              activeOpacity={0.5}
+              onPress={this._navigateLogin()}>
+              <Image
+                style={styles.itemIcon}
+                resizeMode="contain"
+                source={Images.google}
+              />
+              <Text style={styles.TextStyle}> Facebook </Text>
+            </TouchableOpacity>
+          </View>
+          <View
             style={styles.LoginButtonStyle}
-            activeOpacity={0.5}
-            onPress={this._navigateLogin()}>
-            <Image
-              style={styles.itemIcon}
-              resizeMode="contain"
-              source={Images.google}
-            />
-            <Text style={styles.TextStyle}> Facebook </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.LoginButtonStyle}
-            activeOpacity={0.5}
-            // onPress={  }
-          >
-            <Image
-              style={styles.itemIcon}
-              resizeMode="contain"
-              source={Images.google}
-            />
-            <Text style={styles.TextStyle}> Google </Text>
-          </TouchableOpacity>
+            activeOpacity={0.5}>
+             <LoginButton
+              publishPermissions={["email"]}
+              onLoginFinished={
+                (error, result) => {
+                  if (error) {
+                    alert("Login failed with error: " + error.message);
+                  } else if (result.isCancelled) {
+                    alert("Login was cancelled");
+                  } else {
+                    alert("Login was successful with permissions: " + result.grantedPermissions)
+                  }
+                }
+              }
+              onLogoutFinished={() => alert("User logged out")}/>
+          </View>
         </View>
         <View style={styles.footerButtonView}>
           <Text style={styles.sectionTitle}>Belum punya akun? </Text>

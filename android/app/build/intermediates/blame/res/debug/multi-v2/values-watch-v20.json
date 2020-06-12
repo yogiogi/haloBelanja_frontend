@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/yogiprasetyo/Documents/haloBelanja/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "/Users/yogiprasetyo/Documents/GitHub/haloBelanja_frontend/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "/Users/yogiprasetyo/.gradle/caches/transforms-2/files-2.1/807f6ba60ee15c7b0a089380b0c695c7/play-services-auth-18.0.0/res/values-watch-v20/values.xml",

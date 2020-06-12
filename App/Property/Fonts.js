@@ -16,6 +16,9 @@ const size = {
   extraSmall: 8,
   large: 18,
   extraLarge: 20,
+
+  label: 18,
+  button: 15,
 };
 
 const weight = {
