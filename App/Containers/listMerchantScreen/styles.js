@@ -167,4 +167,16 @@ export default StyleSheet.create({
       borderWidth: 1,
       borderColor: Colors.header,
     },
+
+    LoginButtonStyle: {
+      marginTop: 10,
+      paddingTop: 10,
+      paddingBottom: 10,
+      backgroundColor: Colors.header,
+      borderRadius: 10,
+      width: 130,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
 });

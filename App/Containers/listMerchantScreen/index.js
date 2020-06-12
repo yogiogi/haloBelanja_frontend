@@ -30,6 +30,20 @@ export class listMerchantScreen extends React.Component<Props, State> {
         qtyProforma: 0,
         qtyProformaStr: 0,
         TotalProforma: 0,
+        categorySource: [
+          {
+            id: 1,
+            category: 'aktif'
+          },
+          {
+            id: 2,
+            category: 'profit'
+          },
+          {
+            id: 3,
+            category: 'listing'
+          },
+        ],
         dataSource: [
           {
             id: 1,
@@ -53,7 +67,8 @@ export class listMerchantScreen extends React.Component<Props, State> {
               }
             ],
             price: 'Rp 2.223',
-            income: 'profit'
+            income: 'profit',
+            category: 'aktif'
           },
           {
             id: 2,
@@ -73,7 +88,8 @@ export class listMerchantScreen extends React.Component<Props, State> {
               }
             ],
             price: 'Rp 1.234',
-            income: 'loss'
+            income: 'loss',
+            category: 'profit'
           },
           {
             id: 3,
@@ -89,7 +105,8 @@ export class listMerchantScreen extends React.Component<Props, State> {
               }
             ],
             price: 'Rp 1.123',
-            income: 'profit'
+            income: 'profit',
+            category: 'listing'
           },
         ],
       };
@@ -123,6 +140,29 @@ export class listMerchantScreen extends React.Component<Props, State> {
 
   FlatListItemSeparator = () => <View style={styles.line} />;
 
+  _setCategory(){
+    return(
+      <View >
+        <FlatList
+            horizontal={true}
+            data={this.state.categorySource}
+            renderItem={data => this.renderCategory(data)}
+            keyExtractor={data => data.id}
+            extraData={this.state}
+          />
+      </View>
+    );
+  };
+
+  renderCategory = data => 
+    <TouchableOpacity
+      style={styles.LoginButtonStyle}
+      activeOpacity={0.5}
+      // onPress={  }
+    >
+      <Text style={styles.TextStyle}> {data.category} </Text>
+    </TouchableOpacity>
+
   selectItem = data => {
     data.item.isSelect = !data.item.isSelect;
     data.item.selectedClass = data.item.isSelect ? styles.selected : styles.list;
@@ -138,7 +178,7 @@ export class listMerchantScreen extends React.Component<Props, State> {
     });
   };
 
-  goToStore = () =>this.props.navigation.navigate("Expenses", {selected: this.state.selected,});
+goToStore = () =>this.props.navigation.navigate("Expenses", {selected: this.state.selected,});
 
 renderImage = data => 
   <View style={styles.FlatListContainer}>
@@ -187,6 +227,18 @@ doChangeTextInputOfCart(value: string) {
   }, INPUT_INTERVAL_TIME);
   this.setState({ inputTimerId: inputTimerId, qtyProformaStr: validVal });
 }
+
+_onSwipeForCoachMark = () => {
+  this.props.coachMarkProps.handleNextTips();
+  this.setState({
+    sheetOpen: true,
+  });
+  setTimeout(() => {
+    this.setState({
+      sheetFinished: true,
+    });
+  }, SWIPE_TIME_OUT);
+};
 
 renderItem = data =>
   <TouchableOpacity
@@ -251,6 +303,7 @@ render() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Product Available</Text>
+      { this._setCategory() }
       <FlatList
           data={this.state.dataSource}
           renderItem={item => this.renderItem(item)}

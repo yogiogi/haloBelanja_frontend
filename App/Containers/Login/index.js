@@ -134,7 +134,7 @@ export class LoginTeleponScreen extends Component<Props, State> {
             <Image
               style={styles.itemIcon}
               resizeMode="contain"
-              source={Images.google}
+              source={Images.facebook}
             />
             <Text style={styles.TextStyle}> Google </Text>
           </TouchableOpacity>
