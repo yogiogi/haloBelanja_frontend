@@ -19,6 +19,8 @@ import {
   SelectAccountScreen,
 } from './App/Containers/Aktivasi';
 import LoginTeleponScreen from './App/Containers/Login';
+import listMerchantScreen from './App/Containers/listMerchantScreen';
+
 import {Colors, Fonts} from './App/Property';
 import HeaderStyle from './App/Navigation/headerStyle';
 
@@ -54,6 +56,18 @@ const noTransitionConfig = () => ({
     easing: Easing.step0,
   },
 });
+
+const merchantStack = createStackNavigator(
+  {
+    listMerchantScreen: ({
+      screen: listMerchantScreen,
+      navigationOptions: () => ({
+        header: null,
+      }),
+      transitionConfig: noTransitionConfig,
+    })
+  },
+);
 
 const loginStack = createStackNavigator(
   {
@@ -126,4 +140,19 @@ const loginStack = createStackNavigator(
     defaultNavigationOptions,
   },
 );
-export default createAppContainer(loginStack);
+
+const PrimaryNav = createStackNavigator({
+  loginStack: {
+    screen: loginStack,
+    navigationOptions: () =>({
+      gestureEnabled: false,
+    }),
+  },
+  merchantStack: {
+    screen: merchantStack,
+    navigationOptions: () =>({
+      gestureEnabled: false,
+    }),
+  },
+})
+export default createAppContainer(merchantStack);
