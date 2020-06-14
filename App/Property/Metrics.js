@@ -1,4 +1,5 @@
 import { Dimensions, Platform, NativeModules } from 'react-native';
+import colors from '../Property/Colors';
 
 // iPhoneX
 const X_WIDTH = 375;
@@ -411,6 +412,34 @@ const input = {
   },
 };
 
+const DataEmptyConstant = {
+  primary: {
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    title: {
+      justifyContent: 'center',
+      alignSelf: 'center',
+      padding: 10,
+      fontSize: 14,
+      color: colors.coolGrey,
+    },
+    button: {
+      justifyContent: 'center',
+      alignSelf: 'center',
+      backgroundColor: colors.danger,
+    },
+  },
+  secondary: {
+    container: {
+      justifyContent: 'center',
+      alignSelf: 'center',
+    },
+  },
+};
+
 const divider = {
   default: {
     width: '100%',
@@ -739,4 +768,5 @@ export default {
   scaleSize,
   scaleWidth,
   scaleHeight,
+  DataEmptyConstant
 };

@@ -20,6 +20,7 @@ import {
 } from './App/Containers/Aktivasi';
 import LoginTeleponScreen from './App/Containers/Login';
 import listMerchantScreen from './App/Containers/listMerchantScreen';
+import MerchantScreen from './App/Components/MerchantScreen';
 
 import {Colors, Fonts} from './App/Property';
 import HeaderStyle from './App/Navigation/headerStyle';
@@ -56,6 +57,18 @@ const noTransitionConfig = () => ({
     easing: Easing.step0,
   },
 });
+
+const merchantListStack = createStackNavigator(
+  {
+    MerchantScreen: ({
+      screen: MerchantScreen,
+      navigationOptions: () => ({
+        header: null,
+      }),
+      transitionConfig: noTransitionConfig,
+    })
+  },
+);
 
 const merchantStack = createStackNavigator(
   {
@@ -155,4 +168,5 @@ const PrimaryNav = createStackNavigator({
     }),
   },
 })
+
 export default createAppContainer(merchantStack);
